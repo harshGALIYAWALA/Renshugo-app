@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+    <!-- Outer Circle -->
+    <path
+        android:strokeColor="#B8C8E8"
+        android:strokeWidth="1"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M100,20 A80,80 0 1,1 99.9,20" />
+
+    <!-- Inner Circle -->
+    <path
+        android:strokeColor="#5B8DEF"
+        android:strokeWidth="0.8"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M100,35 A65,65 0 1,1 99.9,35" />
+
+    <!-- Brush Handle -->
+    <path
+        android:fillColor="#5B8DEF"
+        android:pathData="M90,20 h20 v25 h-20 z" />
+
+    <!-- Handle Top -->
+    <path
+        android:fillColor="#3A6AD4"
+        android:pathData="M88,12 h24 a2,2 0 0 1 2,2 v4 a2,2 0 0 1 -2,2 h-24 a2,2 0 0 1 -2,-2 v-4 a2,2 0 0 1 2,-2 z" />
+
+    <!-- Brush Body -->
+    <path
+        android:fillColor="#1A2A4A"
+        android:pathData="
+            M100,45
+            C75,75 75,125 100,160
+            C125,125 125,75 100,45 Z"/>
+
+    <!-- Shadow -->
+    <path
+        android:fillColor="#C5D5F0"
+        android:pathData="
+            M75,165
+            C75,155 125,155 125,165
+            C125,175 75,175 75,165 Z"/>
+
+    <!-- Cyan Ink Drop (replaces red) -->
+    <path
+        android:fillColor="#00C2E0"
+        android:pathData="
+            M100,148
+            C90,158 92,168 100,175
+            C108,168 110,158 100,148 Z"/>
+
+    <!-- Decorative Dots -->
+    <path
+        android:fillColor="#A8BDE8"
+        android:pathData="M55,90 a4,4 0 1,1 8,0 a4,4 0 1,1 -8,0" />
+
+    <path
+        android:fillColor="#A8BDE8"
+        android:pathData="M132,90 a4,4 0 1,1 8,0 a4,4 0 1,1 -8,0" />
+
+    <path
+        android:fillColor="#A8BDE8"
+        android:pathData="M48,72 a2.5,2.5 0 1,1 5,0 a2.5,2.5 0 1,1 -5,0" />
+
+    <!-- Bottom Lines -->
+    <path
+        android:strokeColor="#5B8DEF"
+        android:strokeWidth="1"
+        android:pathData="M55,170 L145,170" />
+
+    <path
+        android:strokeColor="#5B8DEF"
+        android:strokeWidth="0.6"
+        android:pathData="M65,178 L135,178" />
+
+</vector>
