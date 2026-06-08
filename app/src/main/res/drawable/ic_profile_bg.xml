@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+    <!-- Decorative dot top-left -->
+    <path
+        android:pathData="M54,52 A6,6 0 1,1 42,52 A6,6 0 1,1 54,52 Z"
+        android:fillColor="#C4B5F4"
+        android:fillAlpha="0.6" />
+
+    <!-- Decorative dot top-right -->
+    <path
+        android:pathData="M163,44 A5,5 0 1,1 153,44 A5,5 0 1,1 163,44 Z"
+        android:fillColor="#C4B5F4"
+        android:fillAlpha="0.5" />
+
+    <!-- Decorative dot far right -->
+    <path
+        android:pathData="M173.5,80 A3.5,3.5 0 1,1 166.5,80 A3.5,3.5 0 1,1 173.5,80 Z"
+        android:fillColor="#C4B5F4"
+        android:fillAlpha="0.4" />
+
+    <!-- Left leaf 1 (bottom) -->
+    <path
+        android:pathData="M16,136 C12,128 22,122 26,130 C30,138 20,144 16,136 Z"
+        android:fillColor="#C4B5F4"
+        android:fillAlpha="0.7" />
+
+    <!-- Left leaf 2 -->
+    <path
+        android:pathData="M18,126 C15,118 25,113 28,121 C31,129 21,134 18,126 Z"
+        android:fillColor="#A78BFA"
+        android:fillAlpha="0.6" />
+
+    <!-- Left leaf 3 (top) -->
+    <path
+        android:pathData="M22,117 C19,109 29,105 32,113 C35,121 25,125 22,117 Z"
+        android:fillColor="#C4B5F4"
+        android:fillAlpha="0.7" />
+
+    <!-- Left leaf 4 (right side bottom) -->
+    <path
+        android:pathData="M34,133 C38,125 48,128 44,136 C40,144 30,141 34,133 Z"
+        android:fillColor="#A78BFA"
+        android:fillAlpha="0.5" />
+
+    <!-- Left leaf 5 (right side top) -->
+    <path
+        android:pathData="M36,123 C40,115 50,118 46,126 C42,134 32,131 36,123 Z"
+        android:fillColor="#C4B5F4"
+        android:fillAlpha="0.6" />
+
+    <!-- Left stem -->
+    <path
+        android:pathData="M28,148 L40,118"
+        android:strokeColor="#A78BFA"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent" />
+
+    <!-- Right leaf 1 (bottom) -->
+    <path
+        android:pathData="M184,136 C188,128 178,122 174,130 C170,138 180,144 184,136 Z"
+        android:fillColor="#C4B5F4"
+        android:fillAlpha="0.7" />
+
+    <!-- Right leaf 2 -->
+    <path
+        android:pathData="M182,126 C185,118 175,113 172,121 C169,129 179,134 182,126 Z"
+        android:fillColor="#A78BFA"
+        android:fillAlpha="0.6" />
+
+    <!-- Right leaf 3 (top) -->
+    <path
+        android:pathData="M178,117 C181,109 171,105 168,113 C165,121 175,125 178,117 Z"
+        android:fillColor="#C4B5F4"
+        android:fillAlpha="0.7" />
+
+    <!-- Right leaf 4 (left side bottom) -->
+    <path
+        android:pathData="M166,133 C162,125 152,128 156,136 C160,144 170,141 166,133 Z"
+        android:fillColor="#A78BFA"
+        android:fillAlpha="0.5" />
+
+    <!-- Right leaf 5 (left side top) -->
+    <path
+        android:pathData="M164,123 C160,115 150,118 154,126 C158,134 168,131 164,123 Z"
+        android:fillColor="#C4B5F4"
+        android:fillAlpha="0.6" />
+
+    <!-- Right stem -->
+    <path
+        android:pathData="M172,148 L160,118"
+        android:strokeColor="#A78BFA"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent" />
+
+    <!-- Main circle background (light lavender) -->
+    <path
+        android:pathData="M165,92 A65,65 0 1,1 35,92 A65,65 0 1,1 165,92 Z"
+        android:fillColor="#EDE9FE"
+        android:fillAlpha="0.85" />
+
+    <!-- User head -->
+    <path
+        android:pathData="M122,72 A22,22 0 1,1 78,72 A22,22 0 1,1 122,72 Z"
+        android:fillColor="#7C3AED" />
+
+    <!-- User body / shoulders -->
+    <path
+        android:pathData="M55,130 C55,100 75,100 100,100 C125,100 145,100 145,130 Z"
+        android:fillColor="#7C3AED" />
+
+    <!-- Plus badge circle -->
+    <path
+        android:pathData="M152,132 A18,18 0 1,1 116,132 A18,18 0 1,1 152,132 Z"
+        android:fillColor="#5B21B6" />
+
+    <!-- Plus — vertical bar -->
+    <path
+        android:pathData="M134,122 L134,142"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent" />
+
+    <!-- Plus — horizontal bar -->
+    <path
+        android:pathData="M124,132 L144,132"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent" />
+
+</vector>

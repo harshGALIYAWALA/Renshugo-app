@@ -49,19 +49,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.shinkatech.renshugo.R
+import com.shinkatech.renshugo.presentation.navigation.Screen
 import com.shinkatech.renshugo.presentation.screen.common.CustomTextField
 
 @SuppressLint("ConfigurationScreenWidthHeight")
 @Composable
-fun LoginScreen() {
+fun LoginScreen(navController: NavController) {
 
     val screenWidth = LocalConfiguration.current.screenWidthDp.dp
     val scrollState = rememberScrollState()
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    var passwordVisible by remember {
-        mutableStateOf(false)
-    }
     val context = LocalContext.current
 
     Column(
@@ -106,7 +104,10 @@ fun LoginScreen() {
                 .padding(12.dp)
         ) {
             Text(
-                text = "Email", fontSize = 16.sp, color = MaterialTheme.colorScheme.onBackground
+                text = "Email",
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onBackground
             )
             Spacer(modifier = Modifier.height(4.dp))
 
@@ -122,7 +123,10 @@ fun LoginScreen() {
             Spacer(modifier = Modifier.height(12.dp))
 
             Text(
-                text = "Password", fontSize = 16.sp, color = MaterialTheme.colorScheme.onBackground
+                text = "Password",
+                fontWeight = FontWeight.Bold,
+                fontSize = 16.sp,
+                color = MaterialTheme.colorScheme.onBackground
             )
             Spacer(modifier = Modifier.height(4.dp))
 
@@ -250,7 +254,13 @@ fun LoginScreen() {
                 Spacer(modifier = Modifier.width(2.dp))
 
                 TextButton(
-                    onClick = { /*TODO*/ }, contentPadding = PaddingValues(0.dp)
+                    onClick = {
+                        navController.navigate(Screen.SignUp.route){
+                            popUpTo(Screen.SignUp.route){
+                                inclusive = true
+                            }
+                        }
+                    }, contentPadding = PaddingValues(0.dp)
                 ) {
                     Text(
                         text = "Sign Up",
