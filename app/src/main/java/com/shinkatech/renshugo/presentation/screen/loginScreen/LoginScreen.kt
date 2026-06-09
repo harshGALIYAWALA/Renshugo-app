@@ -66,9 +66,9 @@ fun LoginScreen(navController: NavController) {
         modifier = Modifier
             .fillMaxSize()
             .statusBarsPadding()
-            .imePadding()
             .padding(vertical = 8.dp, horizontal = 18.dp)
             .verticalScroll(scrollState)
+            .imePadding()
     ) {
         // backPress Icon
         Image(
@@ -179,7 +179,7 @@ fun LoginScreen(navController: NavController) {
                 )
             }
 
-            Spacer(modifier = Modifier.weight(1f))
+            Spacer(modifier = Modifier.height(14.dp))
 
             Row(
                 Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically
@@ -204,7 +204,7 @@ fun LoginScreen(navController: NavController) {
                 )
             }
 
-            Spacer(modifier = Modifier.weight(1f))
+            Spacer(modifier = Modifier.height(14.dp))
 
             OutlinedButton(
                 onClick = {},
@@ -238,7 +238,7 @@ fun LoginScreen(navController: NavController) {
                 }
             }
 
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(14.dp))
 
             Row(
                 modifier = Modifier.fillMaxWidth(),

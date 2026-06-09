@@ -82,9 +82,9 @@ fun SignUpScreen(navController: NavController) {
         modifier = Modifier
             .fillMaxSize()
             .statusBarsPadding()
-            .imePadding()
             .padding(vertical = 8.dp, horizontal = 18.dp)
             .verticalScroll(scrollState)
+            .imePadding()
     ) {
         Text(
             text = "Create Account",
@@ -138,7 +138,7 @@ fun SignUpScreen(navController: NavController) {
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
             )
 
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
             Text(
                 text = "Email",
@@ -158,7 +158,7 @@ fun SignUpScreen(navController: NavController) {
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
             )
 
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
             Text(
                 text = "Password",
@@ -172,14 +172,14 @@ fun SignUpScreen(navController: NavController) {
             CustomTextField(
                 value = password,
                 onValueChange = { password = it },
-                placeholder = "Enter your email",
+                placeholder = "Enter your password",
                 leadingIcon = Icons.Default.Lock,
                 modifier = Modifier.fillMaxWidth(),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                 isPassword = true
             )
 
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
             Text(
                 text = "Confirm Password",
@@ -193,7 +193,7 @@ fun SignUpScreen(navController: NavController) {
             CustomTextField(
                 value = confirmPassword,
                 onValueChange = { confirmPassword = it },
-                placeholder = "Enter your confirm password",
+                placeholder = "confirm password",
                 leadingIcon = Icons.Default.Lock,
                 modifier = Modifier.fillMaxWidth(),
                 isPassword = true,
@@ -201,10 +201,11 @@ fun SignUpScreen(navController: NavController) {
             )
         }
 
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(8.dp))
 
         Row(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Checkbox(
                 checked = checkBox,
@@ -228,32 +229,21 @@ fun SignUpScreen(navController: NavController) {
                     ) {
                         append("Terms & Conditions")
                     }
-
-                    append(" and ")
-
-                    withLink(
-                        LinkAnnotation.Clickable(
-                            tag = "privacy",
-                            linkInteractionListener = {
-                                Toast.makeText(
-                                    context,
-                                    "privacy has been clicked",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                        )
-                    ) {
-                        append("Privacy Policy")
-                    }
                 }
             )
         }
 
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(14.dp))
 
-        // buton
+        // button
         Button(
-            onClick = {},
+            onClick = {
+                navController.navigate(Screen.Login.route){
+                    popUpTo(Screen.Login.route){
+                        inclusive = true
+                    }
+                }
+            },
             shape = RoundedCornerShape(12.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = MaterialTheme.colorScheme.primary,
@@ -272,7 +262,7 @@ fun SignUpScreen(navController: NavController) {
             )
         }
 
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(14.dp))
 
         Row(
             Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically
@@ -297,7 +287,7 @@ fun SignUpScreen(navController: NavController) {
             )
         }
 
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(14.dp))
 
         OutlinedButton(
             onClick = {},
@@ -331,7 +321,7 @@ fun SignUpScreen(navController: NavController) {
             }
         }
 
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(14.dp))
 
         Row(
             modifier = Modifier.fillMaxWidth(),

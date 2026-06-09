@@ -79,6 +79,8 @@ fun CustomTextField(
             }
         },
 
+        maxLines = 1,
+
         keyboardOptions = keyboardOptions,
 
         colors = OutlinedTextFieldDefaults.colors(
