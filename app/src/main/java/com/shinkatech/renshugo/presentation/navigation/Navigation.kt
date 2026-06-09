@@ -4,14 +4,16 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.shinkatech.renshugo.presentation.screen.SignUpScreen.SignUpScreen
+import com.shinkatech.renshugo.presentation.screen.languageScreen.LanguageScreen
 import com.shinkatech.renshugo.presentation.screen.loginScreen.LoginScreen
+import com.shinkatech.renshugo.presentation.screen.signUpScreen.SignUpScreen
 import com.shinkatech.renshugo.presentation.screen.splashScreen.SplashScreen
 
 sealed class Screen(val route: String){
-   object Splash : Screen("splash")
-    object Login : Screen("login")
-    object SignUp : Screen("signUp")
+   data object Splash : Screen("splash")
+    data object Login : Screen("login")
+    data object SignUp : Screen("signUp")
+    data object Language : Screen("language")
 }
 
 @Composable
@@ -19,7 +21,7 @@ fun AppNavigation() {
 
     val mainNavController = rememberNavController()
 
-    NavHost(mainNavController, startDestination = Screen.Splash.route) {
+    NavHost(mainNavController, startDestination = Screen.Language.route) {
 
         // splash screen
         composable(Screen.Splash.route) {
@@ -34,6 +36,11 @@ fun AppNavigation() {
         // SignUp screen
         composable(Screen.SignUp.route) {
             SignUpScreen(mainNavController)
+        }
+
+        // Language screen
+        composable(Screen.Language.route) {
+            LanguageScreen(mainNavController)
         }
     }
 }

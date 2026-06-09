@@ -1,4 +1,4 @@
-package com.shinkatech.renshugo.presentation.screen.SignUpScreen
+package com.shinkatech.renshugo.presentation.screen.signUpScreen
 
 
 import android.annotation.SuppressLint
@@ -46,6 +46,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -56,7 +57,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.shinkatech.renshugo.R
 import com.shinkatech.renshugo.presentation.navigation.Screen
-import com.shinkatech.renshugo.presentation.screen.SignUpScreen.helper.ProfileImagePicker
+import com.shinkatech.renshugo.presentation.screen.signUpScreen.helper.ProfileImagePicker
 import com.shinkatech.renshugo.presentation.screen.common.CustomTextField
 
 
@@ -87,7 +88,7 @@ fun SignUpScreen(navController: NavController) {
             .imePadding()
     ) {
         Text(
-            text = "Create Account",
+            text = stringResource(R.string.create_account_txt),
             fontSize = 28.sp,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -95,7 +96,7 @@ fun SignUpScreen(navController: NavController) {
         )
 
         Text(
-            text = "Sign up to get started",
+            text = stringResource(R.string.sign_up_to_get_started_txt),
             fontSize = 16.sp,
             modifier = Modifier.align(Alignment.CenterHorizontally),
             color = MaterialTheme.colorScheme.onBackground
@@ -132,7 +133,7 @@ fun SignUpScreen(navController: NavController) {
             CustomTextField(
                 value = name,
                 onValueChange = { name = it },
-                placeholder = "Enter your full name",
+                placeholder = stringResource(R.string.enter_full_name_txt),
                 leadingIcon = Icons.Default.Person,
                 modifier = Modifier.fillMaxWidth(),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
@@ -141,7 +142,7 @@ fun SignUpScreen(navController: NavController) {
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "Email",
+                text =  stringResource(R.string.email_txt),
                 fontSize = 16.sp,
                 color = MaterialTheme.colorScheme.onBackground,
                 fontWeight = FontWeight.Bold
@@ -152,7 +153,7 @@ fun SignUpScreen(navController: NavController) {
             CustomTextField(
                 value = email,
                 onValueChange = { email = it },
-                placeholder = "Enter your email",
+                placeholder =  stringResource(R.string.enter_email_txt),
                 leadingIcon = Icons.Default.Mail,
                 modifier = Modifier.fillMaxWidth(),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
@@ -161,7 +162,7 @@ fun SignUpScreen(navController: NavController) {
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "Password",
+                text =  stringResource(R.string.password_txt),
                 fontSize = 16.sp,
                 color = MaterialTheme.colorScheme.onBackground,
                 fontWeight = FontWeight.Bold
@@ -172,7 +173,7 @@ fun SignUpScreen(navController: NavController) {
             CustomTextField(
                 value = password,
                 onValueChange = { password = it },
-                placeholder = "Enter your password",
+                placeholder =  stringResource(R.string.enter_password_txt),
                 leadingIcon = Icons.Default.Lock,
                 modifier = Modifier.fillMaxWidth(),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
@@ -182,7 +183,7 @@ fun SignUpScreen(navController: NavController) {
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "Confirm Password",
+                text = stringResource(R.string.confirm_password_txt),
                 fontSize = 16.sp,
                 color = MaterialTheme.colorScheme.onBackground,
                 fontWeight = FontWeight.Bold
@@ -193,7 +194,7 @@ fun SignUpScreen(navController: NavController) {
             CustomTextField(
                 value = confirmPassword,
                 onValueChange = { confirmPassword = it },
-                placeholder = "confirm password",
+                placeholder = stringResource(R.string.confirm_password_smal_case_txt),
                 leadingIcon = Icons.Default.Lock,
                 modifier = Modifier.fillMaxWidth(),
                 isPassword = true,
@@ -216,7 +217,7 @@ fun SignUpScreen(navController: NavController) {
 
             Text(
                 buildAnnotatedString {
-                    append("I agree to the ")
+                    append(stringResource(R.string.i_agree_to_the_text))
 
                     withLink(
                         LinkAnnotation.Clickable(
@@ -227,7 +228,7 @@ fun SignUpScreen(navController: NavController) {
                             }
                         )
                     ) {
-                        append("Terms & Conditions")
+                        append(stringResource(R.string.terms_conditions_txt))
                     }
                 }
             )
@@ -255,7 +256,7 @@ fun SignUpScreen(navController: NavController) {
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(
-                "Sign Up",
+                stringResource(R.string.sign_up_txt),
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 15.sp,
                 modifier = Modifier.padding(8.dp)
@@ -306,7 +307,7 @@ fun SignUpScreen(navController: NavController) {
             ) {
                 Image(
                     painter = painterResource(R.drawable.ic_google_logo),
-                    contentDescription = "google logo",
+                    contentDescription =  stringResource(R.string.google_logo_txt),
                     modifier = Modifier.size(30.dp)
                 )
 
@@ -329,7 +330,7 @@ fun SignUpScreen(navController: NavController) {
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "Already have an account?",
+                text = stringResource(R.string.already_have_account_txt),
                 color = MaterialTheme.colorScheme.onBackground,
                 fontSize = 16.sp
             )
@@ -346,7 +347,7 @@ fun SignUpScreen(navController: NavController) {
                 }, contentPadding = PaddingValues(0.dp)
             ) {
                 Text(
-                    text = "Login",
+                    text =  stringResource(R.string.login_txt),
                     color = MaterialTheme.colorScheme.primary,
                     fontSize = 16.sp
                 )

@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
@@ -27,6 +28,7 @@ import androidx.navigation.NavController
 import com.shinkatech.renshugo.R
 import com.shinkatech.renshugo.presentation.navigation.Screen
 import kotlinx.coroutines.delay
+import kotlin.time.Duration.Companion.milliseconds
 
 
 @Composable
@@ -35,7 +37,7 @@ fun SplashScreen(navController: NavController) {
     val colors = MaterialTheme.colorScheme
 
     LaunchedEffect(Unit) {
-        delay(2000)
+        delay(2000.milliseconds)
         navController.navigate(Screen.Login.route) {
             popUpTo(0) 
         }
@@ -51,14 +53,14 @@ fun SplashScreen(navController: NavController) {
 
         Image(
             painter = painterResource(R.drawable.ic_app_logo),
-            contentDescription = "app logo",
+            contentDescription = stringResource(R.string.app_logo_txt),
         )
 
         Text(
             text = buildAnnotatedString {
-                withStyle(SpanStyle(color = colors.onBackground)) { append("Ren") }
-                withStyle(SpanStyle(color = colors.primary)) { append("shu") }
-                withStyle(SpanStyle(color = colors.onBackground)) { append("go") }
+                withStyle(SpanStyle(color = colors.onBackground)) { append(stringResource(R.string.ren_txt)) }
+                withStyle(SpanStyle(color = colors.primary)) { append(stringResource(R.string.shu_txt)) }
+                withStyle(SpanStyle(color = colors.onBackground)) { append(stringResource(R.string.go_txt)) }
             },
             fontFamily = FontFamily.Serif,
             fontWeight = FontWeight.Black,
@@ -70,7 +72,7 @@ fun SplashScreen(navController: NavController) {
         Spacer(modifier = Modifier.height(8.dp))
 
         Text(
-            text = "Practice. Learn. Grow.",
+            text = stringResource(R.string.practice_learn_grow_txt),
             fontSize = 16.sp,
             color = colors.onBackground.copy(alpha = 0.7f),
             letterSpacing = 1.sp
@@ -79,7 +81,7 @@ fun SplashScreen(navController: NavController) {
         Spacer(modifier = Modifier.weight(1f))
 
         Text(
-            text = "v1.0.0",
+            text = stringResource(R.string.app_version_txt),
             fontSize = 16.sp,
             color = colors.onBackground.copy(alpha = 0.7f), letterSpacing = 1.sp
         )

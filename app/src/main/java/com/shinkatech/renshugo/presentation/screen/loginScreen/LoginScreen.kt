@@ -43,6 +43,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
@@ -73,7 +74,7 @@ fun LoginScreen(navController: NavController) {
         // backPress Icon
         Image(
             painter = painterResource(R.drawable.ic_app_logo),
-            contentDescription = "app logo",
+            contentDescription = stringResource(R.string.app_logo_txt),
             modifier = Modifier
                 .size(minOf(screenWidth * 0.35f, 180.dp))
                 .align(Alignment.CenterHorizontally)
@@ -82,7 +83,7 @@ fun LoginScreen(navController: NavController) {
         Spacer(modifier = Modifier.height(8.dp))
 
         Text(
-            text = "Welcome Back!",
+            text = stringResource(R.string.welcome_back_txt),
             fontSize = 28.sp,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -90,7 +91,7 @@ fun LoginScreen(navController: NavController) {
         )
 
         Text(
-            text = "Login to continue to your account",
+            text = stringResource(R.string.login_to_continue_txt),
             fontSize = 16.sp,
             modifier = Modifier.align(Alignment.CenterHorizontally),
             color = MaterialTheme.colorScheme.onBackground
@@ -104,7 +105,7 @@ fun LoginScreen(navController: NavController) {
                 .padding(12.dp)
         ) {
             Text(
-                text = "Email",
+                text = stringResource(R.string.email_txt),
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onBackground
@@ -114,7 +115,7 @@ fun LoginScreen(navController: NavController) {
             CustomTextField(
                 value = email,
                 onValueChange = { email = it },
-                placeholder = "Enter your email",
+                placeholder = stringResource(R.string.enter_email_txt),
                 leadingIcon = Icons.Default.Mail,
                 modifier = Modifier.fillMaxWidth(),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
@@ -123,7 +124,7 @@ fun LoginScreen(navController: NavController) {
             Spacer(modifier = Modifier.height(12.dp))
 
             Text(
-                text = "Password",
+                text = stringResource(R.string.password_txt),
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp,
                 color = MaterialTheme.colorScheme.onBackground
@@ -133,7 +134,7 @@ fun LoginScreen(navController: NavController) {
             CustomTextField(
                 value = password,
                 onValueChange = { password = it },
-                placeholder = "Enter your password",
+                placeholder = stringResource(R.string.enter_password_txt),
                 leadingIcon = Icons.Default.Lock,
                 modifier = Modifier.fillMaxWidth(),
                 isPassword = true,
@@ -151,14 +152,14 @@ fun LoginScreen(navController: NavController) {
                     }, contentPadding = PaddingValues(0.dp)
                 ) {
                     Text(
-                        text = "Forgot Password?", color = MaterialTheme.colorScheme.primary
+                        text = stringResource(R.string.forgot_password_txt), color = MaterialTheme.colorScheme.primary
                     )
                 }
             }
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            // buton
+            // button
             Button(
                 onClick = {},
                 shape = RoundedCornerShape(12.dp),
@@ -172,7 +173,7 @@ fun LoginScreen(navController: NavController) {
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
-                    "Get Started",
+                    text = stringResource(R.string.login_txt),
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 15.sp,
                     modifier = Modifier.padding(8.dp)
@@ -223,14 +224,14 @@ fun LoginScreen(navController: NavController) {
                 ) {
                     Image(
                         painter = painterResource(R.drawable.ic_google_logo),
-                        contentDescription = "google logo",
+                        contentDescription = stringResource(R.string.google_logo_txt),
                         modifier = Modifier.size(30.dp)
                     )
 
                     Spacer(modifier = Modifier.width(8.dp))
 
                     Text(
-                        text = "Google",
+                        text = stringResource(R.string.google_txt),
                         color = MaterialTheme.colorScheme.onBackground,
                         fontWeight = FontWeight.Medium,
                         fontSize = 18.sp
@@ -246,7 +247,7 @@ fun LoginScreen(navController: NavController) {
                 horizontalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "Don't have an account?",
+                    text = stringResource(R.string.don_t_have_account_txt),
                     color = MaterialTheme.colorScheme.onBackground,
                     fontSize = 16.sp
                 )
@@ -263,7 +264,7 @@ fun LoginScreen(navController: NavController) {
                     }, contentPadding = PaddingValues(0.dp)
                 ) {
                     Text(
-                        text = "Sign Up",
+                        text = stringResource(R.string.sign_up_txt),
                         color = MaterialTheme.colorScheme.primary,
                         fontSize = 16.sp
                     )

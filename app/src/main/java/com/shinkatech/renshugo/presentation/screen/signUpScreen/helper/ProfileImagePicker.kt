@@ -1,4 +1,4 @@
-package com.shinkatech.renshugo.presentation.screen.SignUpScreen.helper
+package com.shinkatech.renshugo.presentation.screen.signUpScreen.helper
 
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult

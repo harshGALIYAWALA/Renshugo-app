@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">Renshugo</string>
+
+<!--    splash Screen-->
+    <string name="app_logo_txt">app logo</string>
+    <string name="ren_txt">Ren</string>
+    <string name="shu_txt">shu</string>
+    <string name="go_txt">go</string>
+    <string name="practice_learn_grow_txt">Practice. Learn. Grow.</string>
+    <string name="app_version_txt">v1.0.0</string>
+
+<!--    Login Screen-->
+    <string name="welcome_back_txt">Welcome Back!</string>
+    <string name="login_to_continue_txt">Login to continue to your account</string>
+    <string name="email_txt">Email</string>
+    <string name="enter_email_txt">Enter your email</string>
+    <string name="password_txt">Password</string>
+    <string name="enter_password_txt">Enter your password</string>
+    <string name="forgot_password_txt">Forgot Password?</string>
+    <string name="login_txt">Login</string>
+    <string name="google_logo_txt">google logo</string>
+    <string name="google_txt">Google</string>
+    <string name="don_t_have_account_txt">Don\'t have an account?</string>
+    <string name="sign_up_txt">Sign Up</string>
+
+    <!--    SignUp Screen-->
+    <string name="create_account_txt">Create Account</string>
+    <string name="sign_up_to_get_started_txt">Sign up to get started</string>
+    <string name="enter_full_name_txt">Enter your full name</string>
+    <string name="confirm_password_txt">Confirm Password</string>
+    <string name="confirm_password_smal_case_txt">confirm password</string>
+    <string name="i_agree_to_the_text">"I agree to the "</string>
+    <string name="terms_conditions_txt"><![CDATA[Terms & Conditions]]></string>
+    <string name="already_have_account_txt">Already have an account?</string>
+
 </resources>
