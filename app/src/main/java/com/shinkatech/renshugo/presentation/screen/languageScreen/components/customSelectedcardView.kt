@@ -1,6 +1,5 @@
-package com.shinkatech.renshugo.presentation.screen.languageScreen.helper
+package com.shinkatech.renshugo.presentation.screen.languageScreen.components
 
-import androidx.compose.animation.Animatable
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
@@ -26,51 +25,53 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.selected
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import kotlinx.coroutines.launch
 
 @Composable
 fun CustomLanguageSelectedCardView(
-    language: String, translatedLanguage: String, isSelected: Boolean, onClick: () -> Unit = {}
+    language: String,
+    translatedLanguage: String,
+    isSelected: () -> Boolean,
+    onClick: () -> Unit = {}
 ) {
 
-    val scale = remember { Animatable(initialValue = 1f) }
-    val scale2 = remember { Animatable(initialValue = 1f) }
+    val haptic = LocalHapticFeedback.current
+    val selected = isSelected()
 
-    LaunchedEffect(key1 = isSelected) {
-        if (isSelected) {
-            scale.animateTo(
-                targetValue = 0.92f, animationSpec = tween(
-                    durationMillis = 100
-                )
-            )
-            scale.animateTo(
-                targetValue = 1f, animationSpec = spring(
-                    dampingRatio = Spring.DampingRatioMediumBouncy,
-                    stiffness = Spring.StiffnessLow
-                )
-            )
+
+    LaunchedEffect(selected) {
+        if (selected) {
+            // haplic feedback
+            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
         }
     }
 
     OutlinedCard(
         modifier = Modifier
-            .scale(scale = scale.value)
             .clip(shape = RoundedCornerShape(12.dp))
             .fillMaxWidth()
             .clickable(
-                onClick = { onClick() }),
+                onClick = onClick
+            )
+            .semantics{
+                role = Role.RadioButton
+            },
         shape = RoundedCornerShape(12.dp),
         border = BorderStroke(
-            width = if (isSelected) 2.dp else 1.dp,
-            color = if (isSelected) MaterialTheme.colorScheme.primary
+            width = if (selected) 2.dp else 1.dp,
+            color = if (selected) MaterialTheme.colorScheme.primary
             else MaterialTheme.colorScheme.outlineVariant
         ),
         colors = CardDefaults.cardColors(
-            containerColor = if (isSelected) MaterialTheme.colorScheme.primary.copy(alpha = 0.1f)
+            containerColor = if (selected) MaterialTheme.colorScheme.primary.copy(alpha = 0.1f)
             else MaterialTheme.colorScheme.background
         ),
     ) {
@@ -100,12 +101,11 @@ fun CustomLanguageSelectedCardView(
             }
 
             //one svg or icon
-            if (isSelected) {
+            if (selected) {
                 Icon(
                     imageVector = Icons.Default.CheckCircle,
                     tint = MaterialTheme.colorScheme.primary,
-                    contentDescription = "check box for selected language",
-                    modifier = Modifier.scale(scale = scale.value)
+                    contentDescription = "check box for selected language"
                 )
             }
         }

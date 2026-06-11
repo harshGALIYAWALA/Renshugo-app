@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.shinkatech.renshugo.presentation.screen.languageScreen.LanguageScreen
+import com.shinkatech.renshugo.presentation.screen.languageScreen.ChooseLanguageScreen
 import com.shinkatech.renshugo.presentation.screen.loginScreen.LoginScreen
 import com.shinkatech.renshugo.presentation.screen.signUpScreen.SignUpScreen
 import com.shinkatech.renshugo.presentation.screen.splashScreen.SplashScreen
@@ -40,7 +40,7 @@ fun AppNavigation() {
 
         // Language screen
         composable(Screen.Language.route) {
-            LanguageScreen(mainNavController)
+            ChooseLanguageScreen(mainNavController)
         }
     }
 }

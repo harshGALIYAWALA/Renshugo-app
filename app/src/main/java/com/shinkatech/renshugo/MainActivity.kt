@@ -10,7 +10,9 @@ import androidx.compose.ui.Modifier
 import com.shinkatech.renshugo.presentation.navigation.AppNavigation
 import com.shinkatech.renshugo.presentation.screen.loginScreen.LoginScreen
 import com.shinkatech.renshugo.ui.theme.RenshugoTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
