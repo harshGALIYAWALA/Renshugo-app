@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.shinkatech.renshugo.presentation.screen.jlptLevelScreen.JpLevelScreen
 import com.shinkatech.renshugo.presentation.screen.languageScreen.ChooseLanguageScreen
 import com.shinkatech.renshugo.presentation.screen.loginScreen.LoginScreen
 import com.shinkatech.renshugo.presentation.screen.signUpScreen.SignUpScreen
@@ -14,6 +15,7 @@ sealed class Screen(val route: String){
     data object Login : Screen("login")
     data object SignUp : Screen("signUp")
     data object Language : Screen("language")
+    data object JpLevel : Screen("jpLevel")
 }
 
 @Composable
@@ -41,6 +43,11 @@ fun AppNavigation() {
         // Language screen
         composable(Screen.Language.route) {
             ChooseLanguageScreen(mainNavController)
+        }
+
+        // jpLevel screen
+        composable(Screen.JpLevel.route) {
+            JpLevelScreen(mainNavController)
         }
     }
 }

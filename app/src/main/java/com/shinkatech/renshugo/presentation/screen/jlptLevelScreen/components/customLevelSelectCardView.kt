@@ -1,7 +1,5 @@
 package com.shinkatech.renshugo.presentation.screen.jlptLevelScreen.components
 
-import android.R
-import android.widget.Space
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -12,7 +10,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.visible
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -46,16 +45,15 @@ fun CustomLevelSelectCardView(
     description: String,
     wordNum: String,
     grammarNum: String,
-    isSelected: () -> Boolean,
+    isSelected: Boolean,
     onClick: () -> Unit = {}
-){
+) {
 
     val haptic = LocalHapticFeedback.current
-    val selected = isSelected()
 
 
-    LaunchedEffect(selected) {
-        if (selected) {
+    LaunchedEffect(isSelected) {
+        if (isSelected) {
             // haplic feedback
             haptic.performHapticFeedback(HapticFeedbackType.LongPress)
         }
@@ -63,7 +61,6 @@ fun CustomLevelSelectCardView(
 
     OutlinedCard(
         modifier = Modifier
-            .clip(shape = RoundedCornerShape(12.dp))
             .fillMaxWidth()
             .clickable(
                 onClick = onClick
@@ -73,12 +70,12 @@ fun CustomLevelSelectCardView(
             },
         shape = RoundedCornerShape(12.dp),
         border = BorderStroke(
-            width = if (selected) 2.dp else 1.dp,
-            color = if (selected) MaterialTheme.colorScheme.primary
+            width = if (isSelected) 2.dp else 1.dp,
+            color = if (isSelected) MaterialTheme.colorScheme.primary
             else MaterialTheme.colorScheme.outlineVariant
         ),
         colors = CardDefaults.cardColors(
-            containerColor = if (selected) MaterialTheme.colorScheme.primary.copy(alpha = 0.1f)
+            containerColor = if (isSelected) MaterialTheme.colorScheme.primary.copy(alpha = 0.1f)
             else MaterialTheme.colorScheme.background
         ),
     ) {
@@ -92,67 +89,80 @@ fun CustomLevelSelectCardView(
 
             Box(
                 modifier = Modifier
-                    .clip(RoundedCornerShape(50))
-                    .background(if (selected) MaterialTheme.colorScheme.primary else Color.LightGray)
+                    .clip(RoundedCornerShape(percent = 100))
+                    .background(if (isSelected) MaterialTheme.colorScheme.primary else Color.LightGray)
             ) {
                 Text(
-                    text = "N5",
+                    text = jpLevel,
                     textAlign = TextAlign.Center,
                     fontWeight = FontWeight.Bold,
-                    color = if (selected) Color.White else Color.Black,
+                    color = if (isSelected) Color.White else Color.Black,
                     fontSize = 18.sp,
                     modifier = Modifier.padding(8.dp)
                 )
             }
 
-            Spacer(modifier = Modifier.weight(0.2f))
+            Spacer(modifier = Modifier.weight(0.1f))
 
             // two str
             Column(
                 modifier = Modifier.weight(2f), horizontalAlignment = Alignment.Start
             ) {
                 Text(
-                    text = "Beginner",
+                    text = levelTitle,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onBackground,
-                    fontSize = 18.sp
+                    fontSize = 22.sp
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = "basic greeting, simple sentence",
+                    text = description,
                     color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f),
+                    fontSize = 14.sp
                 )
-                Spacer(modifier = Modifier.height(6.dp))
-                Row{
-                    Text(
-                        text = "$wordNum Words",
-                        color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f),
-                        modifier = Modifier
-                            .clip(RoundedCornerShape(6.dp))
-                            .background(if (selected) MaterialTheme.colorScheme.background else Color.LightGray)
-                            .padding(vertical = 2.dp, horizontal = 6.dp)
+                Spacer(modifier = Modifier.height(4.dp))
 
-                    )
-                    Spacer(modifier = Modifier.width(12.dp))
-                    Text(
-                        text = "$wordNum Words",
-                        color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f),
-                        modifier = Modifier
-                            .clip(RoundedCornerShape(6.dp))
-                            .background(if (selected) MaterialTheme.colorScheme.background else Color.LightGray)
-                            .padding(vertical = 2.dp, horizontal = 6.dp)
+                Text(
+                    text = "$wordNum Words",
+                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f),
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(6.dp))
+                        .background(
+                            if (isSelected) MaterialTheme.colorScheme.background else Color.LightGray.copy(
+                                alpha = 0.1f
+                            )
+                        )
+                        .padding(vertical = 2.dp, horizontal = 6.dp),
+                    fontSize = 14.sp
 
-                    )
-                }
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = "$grammarNum Grammars",
+                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f),
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(6.dp))
+                        .background(
+                            if (isSelected) MaterialTheme.colorScheme.background else Color.LightGray.copy(
+                                alpha = 0.1f
+                            )
+                        )
+                        .padding(vertical = 2.dp, horizontal = 6.dp),
+                    fontSize = 14.sp
+
+                )
+
             }
 
+            Spacer(modifier = Modifier.weight(0.2f))
+
             //one svg or icon
-            if (selected) {
+            if (isSelected) {
                 Icon(
-                    modifier = Modifier.weight(1f),
                     imageVector = Icons.Default.CheckCircle,
                     tint = MaterialTheme.colorScheme.primary,
-                    contentDescription = "check box for selected language"
+                    contentDescription = "check box for selected language",
+                    modifier = Modifier.size(24.dp)
                 )
             }
         }
@@ -177,7 +187,7 @@ fun CustomLanguageCardPreview() {
             description = "basic greeting, simple sentence",
             wordNum = "120",
             grammarNum = "60",
-            isSelected = { true }
+            isSelected = true
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -188,7 +198,7 @@ fun CustomLanguageCardPreview() {
             description = "basic greeting, simple sentence",
             wordNum = "120",
             grammarNum = "60",
-            isSelected = { false }
+            isSelected = false
         )
     }
 }
